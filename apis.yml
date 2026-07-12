@@ -28,6 +28,8 @@ apis:
     description: >-
       The LendingClub API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: DomainSecurity
+    url: security/lendingclub-domain-security.yml
   - type: GitHubOrganization
     url: https://github.com/LendingClub
   - type: LinkedIn
