@@ -23,6 +23,7 @@ accessModel:
   confidence: medium
   source:
   - plans
+  - {url: 'https://www.lendingclub.com', status: 301, note: 'declared website redirects to https://www.happen.com/?b=7f79f2de-7eb3-4ffe-b2e9-613ff6c70b41 — a different registrable domain (lendingclub.com -> happen.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
   generated: '2026-07-22'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/lendingclub.png
