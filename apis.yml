@@ -52,6 +52,26 @@ apis:
     description: >-
       The LendingClub API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: About
+    url: https://www.happen.com/company/about-us
+  - type: HelpCenter
+    url: https://www.happen.com/help
+  - type: Support
+    url: https://www.happen.com/company/contact
+  - type: Blog
+    url: https://www.happen.com/resource-center
+  - type: Login
+    url: https://www.happen.com/loans/landing/login
+  - type: TermsOfService
+    url: https://www.happen.com/legal/terms-of-use
+  - type: PrivacyPolicy
+    url: https://www.happen.com/legal/privacy-policy
+  - type: InvestorRelations
+    url: https://www.happen.com/company/contact/investor-relations
+  - type: Lifecycle
+    url: lifecycle/lendingclub-lifecycle.yml
+  - type: LLMsTxt
+    url: llms/lendingclub-llms.txt
   - type: DomainSecurity
     url: security/lendingclub-domain-security.yml
   - type: GitHubOrganization
