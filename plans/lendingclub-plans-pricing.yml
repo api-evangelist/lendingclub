@@ -4,45 +4,40 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: LendingClub
 providerId: lendingclub
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-06'
+generated: '2026-09-06'
+method: searched
+source: >-
+  https://www.happen.com/ sitemap walk (679 URLs), https://www.happen.com/pricing (soft-404),
+  https://www.happen.com/institutional-investing/overview and
+  https://www.happen.com/company/contact/institutions-and-banks — probed 2026-09-06.
+reconciled: true
 tags:
   - Fintech
   - Personal Loans
   - Banking
-description: LendingClub does not publish a public API plans/pricing page. Programmatic access is generally
-  available through partner agreements, institutional investor onboarding, or through the LendingClub
-  Bank treasury / deposit relationships. Pricing is negotiated rather than self-serve.
-notes: No public pricing page found. Plans below are placeholders for partner / custom enterprise engagement;
-  prices and quotas must be confirmed with LendingClub directly.
-sources:
-  - https://www.lendingclub.com
-  - https://www.lendingclub.com/legal/terms-conditions
-plans:
-  - id: lendingclub-partner
-    name: Partner / Custom
-    type: enterprise
-    description: Custom-negotiated API access for institutional investors, banking partners, and approved
-      integrators. Terms, quotas, and pricing are set in the underlying partner or master services agreement.
-    entries:
-      - label: API Access
-        name: api_access
-        type: subscription
-        metric: contract
-        limit: -1
-        timeFrame: month
-        geo: US
-        unit: 1
-        price: contact provider
-        userMultiplied: false
-    elements:
-      - name: Negotiated Volume
-      - name: Contractual SLA
-      - name: Partner Onboarding
-      - name: LendingClub API
+plan_count: 0
+plans: []
+description: >-
+  LendingClub — trading since 2026 as Happen Bank, N.A. — publishes NO API plans, tiers,
+  quotas or pricing of any kind. There is no /pricing page (the path returns the marketing
+  homepage under a soft-404), and no pricing appears anywhere in the 679-URL sitemap for a
+  developer or API product. The company's only published pricing is consumer-facing loan
+  rates and fees, which price a loan rather than API access.
+notes: >-
+  plan_count is 0 by measurement, not by omission. Access to the API surface still
+  marketed on the institutional-investing page ("API-driven purchasing") is obtained
+  through the institutions-and-banks contact form, so commercial terms are negotiated
+  inside an institutional investor or bank-partner agreement and never published. This
+  file REPLACES a 2026-05-04 bulk-sweep artifact that invented a "Partner / Custom"
+  enterprise tier with a "contact provider" price; that plan was never published by
+  LendingClub and has been removed rather than carried forward (roadmap#35).
+evidence:
+  - {url: 'https://www.happen.com/pricing', status: 200, note: 'soft-404 — returns the homepage payload, og:title "Happen Bank, formerly LendingClub"'}
+  - {url: 'https://www.happen.com/institutional-investing/overview', status: 200, note: 'markets API-driven purchasing; states no price'}
+  - {url: 'https://www.happen.com/company/contact/institutions-and-banks', status: 200, note: 'contact-sales form — the only route to terms'}
+  - {url: 'https://www.happen.com/developers/api-overview', status: 404, note: 'retired developer program; no plan page behind it'}
+  - {url: 'https://www.happen.com/sitemap.xml', status: 200, note: '679 URLs; no API pricing or plans page among them'}
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

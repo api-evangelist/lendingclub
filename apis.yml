@@ -31,10 +31,22 @@ tags:
   - Fintech
   - Personal Loans
   - Banking
+  - Financial Services
+  - Marketplace Lending
+  - Consumer Lending
 description: >-
-  LendingClub is a major US corporation and Fortune 1000 company. The LendingClub API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+  LendingClub is a US consumer-finance company and national bank, founded in 2006 as a
+  peer-to-peer marketplace lender and now a Fortune 1000 digital bank following its 2021
+  acquisition of Radius Bancorp. In 2026 it rebranded as Happen Bank, N.A. and moved its
+  web presence from lendingclub.com to happen.com. It no longer operates a public
+  developer program: the /developers tree and the LCX Primary and Secondary Market API
+  technical documentation were withdrawn during the rebrand and now return HTTP 404, while
+  the legacy investor host api.lendingclub.com remains live but gated and undocumented.
+  The API the company still markets - "API-driven purchasing" inside Marketplace Connect
+  for institutional loan buyers - is reachable only through an institutional contact-sales
+  form, with no published reference or machine-readable contract.
 created: '2026-04-19'
-modified: '2026-04-19'
+modified: '2026-09-06'
 specificationVersion: '0.23'
 apis:
   - aid: lendingclub:lendingclub-api
@@ -45,12 +57,20 @@ apis:
       - Banking
     image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.lendingclub.com
-    humanURL: https://developer.lendingclub.com
+    humanURL: https://www.happen.com/institutional-investing/overview
     properties:
-      - url: https://developer.lendingclub.com/docs
-        type: Documentation
+      - url: lifecycle/lendingclub-lifecycle.yml
+        type: Lifecycle
     description: >-
-      The LendingClub API provides access to platform services and data for enterprise integration and automation.
+      No public contract or reference is published for this API. api.lendingclub.com is
+      live and gated - /api/investor/v1/accounts/1/summary answers HTTP 401 and
+      /api/investor/v1/loans/listing answers HTTP 403 - but the documentation that
+      described it was withdrawn in 2026 (probed 2026-09-06). The former developer portal
+      developer.lendingclub.com now 301s to the happen.com marketing homepage, and the
+      /developers and LCX Primary/Secondary Market documentation trees return HTTP 404 on
+      both domains. humanURL points at the institutional-investing page, which is the only
+      live page that still states an API exists; access runs through the
+      institutions-and-banks contact form.
 common:
   - type: About
     url: https://www.happen.com/company/about-us
@@ -77,9 +97,37 @@ common:
   - type: GitHubOrganization
     url: https://github.com/LendingClub
   - type: LinkedIn
-    url: https://www.linkedin.com/company/lending-club
+    url: https://www.linkedin.com/company/happenbank
+  - type: Packages
+    url: packages/lendingclub-packages.yml
   - type: Website
-    url: https://www.lendingclub.com
+    url: https://www.happen.com
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v3
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    The LCX Primary and Secondary Market REST API technical documentation, live as
+    recently as 2026-06-08, now returns HTTP 404 on both lendingclub.com and happen.com
+    after the Happen Bank rebrand, leaving the "API-driven purchasing" that Marketplace
+    Connect still advertises reachable only through the institutions-and-banks
+    contact-sales form.
+  evidence:
+    - url: https://www.happen.com/institutional-investing/lcxpm-api
+      status: 404
+    - url: https://www.happen.com/developers/api-overview
+      status: 404
+    - url: https://www.happen.com/institutional-investing/overview
+      status: 200
+    - url: https://www.happen.com/company/contact/institutions-and-banks
+      status: 200
+    - url: https://api.lendingclub.com/api/investor/v1/accounts/1/summary
+      status: 401
+  checked: '2026-09-06'

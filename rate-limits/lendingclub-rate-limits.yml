@@ -4,39 +4,40 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: LendingClub
 providerId: lendingclub
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: false
+modified: '2026-09-06'
+generated: '2026-09-06'
+method: searched
+source: >-
+  Searched the live happen.com surface and the withdrawn lendingclub.com developer and LCX
+  documentation trees for any published limit, window, burst or rate-limit response header.
+  Probed 2026-09-06.
+reconciled: true
 tags:
   - Rate Limiting
   - Fintech
   - Personal Loans
   - Banking
-description: LendingClub does not publish public API rate-limit documentation. Per-key, per-IP, and concurrency
-  limits are governed by the partner agreement and the LendingClub WAF / API gateway in front of api.lendingclub.com.
-  Sandbox vs production differences, header conventions, and burst behavior must be confirmed with LendingClub.
-notes: No public rate-limit documentation found. Limits below describe the policy surface; numeric ceilings
-  must be confirmed with LendingClub via partner channels.
-sources:
-  - https://www.lendingclub.com
-responseCodes:
-  throttled: 429
-  serviceUnavailable: 503
-limits:
-  - name: Partner API Limit
-    scope: api-key
-    metric: varies
-    limit: see partner agreement
-    notes: Numeric per-second/per-minute ceilings are not published; refer to your partner contract.
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter and honor any Retry-After header
-      returned by the gateway.
-  - name: Partner-Specific Limits
-    description: Quotas and burst behavior are negotiated per partner agreement; raise via the LendingClub
-      API support channel.
+limit_count: 0
+limits: []
+description: >-
+  LendingClub / Happen Bank publishes no API rate-limit documentation. The pages that once
+  carried the API's general considerations — /developers/considerations and the LCX
+  Primary/Secondary Market technical documentation — now return HTTP 404, and nothing on
+  the current happen.com surface documents a limit, a window, a burst allowance, or a
+  rate-limit response header.
+notes: >-
+  limit_count is 0 by measurement. No X-RateLimit-*, RateLimit-* or Retry-After header
+  could be observed either: the only reachable endpoints on api.lendingclub.com answer 401
+  or 403 before any limit applies, and probing harder to elicit a 429 from a production
+  bank host is out of bounds for this pipeline. This file REPLACES a 2026-05-04 bulk-sweep
+  artifact that asserted an unpublished "Partner API Limit", a 429/503 response-code
+  contract and two backoff policies, none of which LendingClub has published (roadmap#35).
+observed_headers: []
+evidence:
+  - {url: 'https://api.lendingclub.com/api/investor/v1/accounts/1/summary', status: 401, note: 'unauthenticated; body {"message":"Unauthorized"} — no rate-limit headers returned'}
+  - {url: 'https://api.lendingclub.com/api/investor/v1/loans/listing', status: 403, note: '"Missing Authorization Token or Unsupported API Method or Resource" — no rate-limit headers returned'}
+  - {url: 'https://www.happen.com/developers/considerations', status: 404, note: 'the page that carried general API considerations is withdrawn'}
+  - {url: 'https://www.happen.com/institutional-investing/lcxpm-api', status: 404, note: 'LCX PM technical documentation withdrawn; last archived 200 on 2026-06-08'}
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

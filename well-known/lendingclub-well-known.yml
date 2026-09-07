@@ -1,0 +1,119 @@
+specification: API Commons Well-Known
+specificationVersion: '0.1'
+provider: LendingClub
+providerId: lendingclub
+generated: '2026-09-06'
+method: probed
+source: >-
+  Direct HTTPS probes of every host this record knows — the registrable domain and www for
+  both the legacy lendingclub.com and the current happen.com presence, the retired
+  developer host, and the API host named in apis.yml baseURL.
+summary: >-
+  No .well-known discovery document is served on any LendingClub / Happen Bank host.
+  Both marketing domains answer every /.well-known/* path with a 301/302 into the
+  Next.js marketing site, which then returns the homepage shell under HTTP 200 — a
+  soft-404, not a document. The API host api.lendingclub.com answers 403 from its edge
+  for every /.well-known/* path. Recorded as an absence; NO WellKnown, APICatalog or
+  SecurityTxt pointer is emitted, because nothing here is a served document.
+control_probe:
+  url: https://www.happen.com/zzz-definitely-not-a-real-page-12345
+  status: 200
+  note: >-
+    Control probe for the soft-404 finding. A path that cannot exist returns HTTP 200 with
+    the homepage payload (259,941 bytes, og:title "Happen Bank, formerly LendingClub"),
+    identical in shape to every /.well-known/* response after redirect. Paths that DO
+    resolve return distinct og:titles and smaller payloads, and genuinely missing routed
+    paths (e.g. /developers) return a real 404 with og:title "Page Does Not Exist".
+hosts:
+  - host: www.lendingclub.com
+    note: 301s to www.happen.com; no document served
+    documents:
+      - {path: /.well-known/security.txt, status: 301, file: null}
+      - {path: /.well-known/openid-configuration, status: 301, file: null}
+      - {path: /.well-known/oauth-authorization-server, status: 301, file: null}
+      - {path: /.well-known/oauth-protected-resource, status: 301, file: null}
+      - {path: /.well-known/api-catalog, status: 301, file: null}
+      - {path: /.well-known/ai-plugin.json, status: 301, file: null}
+      - {path: /.well-known/agent-card.json, status: 301, file: null}
+      - {path: /.well-known/agent.json, status: 301, file: null}
+  - host: lendingclub.com
+    note: 301s to www.happen.com; no document served
+    documents:
+      - {path: /.well-known/security.txt, status: 301, file: null}
+      - {path: /.well-known/openid-configuration, status: 301, file: null}
+      - {path: /.well-known/oauth-authorization-server, status: 301, file: null}
+      - {path: /.well-known/oauth-protected-resource, status: 301, file: null}
+      - {path: /.well-known/api-catalog, status: 301, file: null}
+      - {path: /.well-known/ai-plugin.json, status: 301, file: null}
+      - {path: /.well-known/agent-card.json, status: 301, file: null}
+      - {path: /.well-known/agent.json, status: 301, file: null}
+  - host: developer.lendingclub.com
+    note: >-
+      Retired developer host. Still resolves and holds a valid certificate, but 301s every
+      path — including / and /docs — into the happen.com marketing homepage.
+    documents:
+      - {path: /.well-known/security.txt, status: 301, file: null}
+      - {path: /.well-known/openid-configuration, status: 301, file: null}
+      - {path: /.well-known/oauth-authorization-server, status: 301, file: null}
+      - {path: /.well-known/oauth-protected-resource, status: 301, file: null}
+      - {path: /.well-known/api-catalog, status: 301, file: null}
+      - {path: /.well-known/ai-plugin.json, status: 301, file: null}
+      - {path: /.well-known/agent-card.json, status: 301, file: null}
+      - {path: /.well-known/agent.json, status: 301, file: null}
+  - host: api.lendingclub.com
+    note: >-
+      Live API host. Edge returns 403 Forbidden for every unauthenticated /.well-known/*
+      path; the legacy investor endpoints under /api/investor/v1/ answer 401 Unauthorized,
+      so the host is up and gated rather than gone.
+    documents:
+      - {path: /.well-known/security.txt, status: 403, file: null}
+      - {path: /.well-known/openid-configuration, status: 403, file: null}
+      - {path: /.well-known/oauth-authorization-server, status: 403, file: null}
+      - {path: /.well-known/oauth-protected-resource, status: 403, file: null}
+      - {path: /.well-known/api-catalog, status: 403, file: null}
+      - {path: /.well-known/ai-plugin.json, status: 403, file: null}
+      - {path: /.well-known/agent-card.json, status: 403, file: null}
+      - {path: /.well-known/agent.json, status: 403, file: null}
+  - host: www.happen.com
+    note: 302s every /.well-known/* path to the marketing homepage (soft-404)
+    documents:
+      - {path: /.well-known/security.txt, status: 302, file: null}
+      - {path: /.well-known/openid-configuration, status: 302, file: null}
+      - {path: /.well-known/oauth-authorization-server, status: 302, file: null}
+      - {path: /.well-known/oauth-protected-resource, status: 302, file: null}
+      - {path: /.well-known/api-catalog, status: 302, file: null}
+      - {path: /.well-known/ai-plugin.json, status: 302, file: null}
+      - {path: /.well-known/agent-card.json, status: 302, file: null}
+      - {path: /.well-known/agent.json, status: 302, file: null}
+  - host: happen.com
+    note: 301s to www.happen.com; no document served
+    documents:
+      - {path: /.well-known/security.txt, status: 301, file: null}
+      - {path: /.well-known/openid-configuration, status: 301, file: null}
+      - {path: /.well-known/oauth-authorization-server, status: 301, file: null}
+      - {path: /.well-known/oauth-protected-resource, status: 301, file: null}
+      - {path: /.well-known/api-catalog, status: 301, file: null}
+      - {path: /.well-known/ai-plugin.json, status: 301, file: null}
+      - {path: /.well-known/agent-card.json, status: 301, file: null}
+      - {path: /.well-known/agent.json, status: 301, file: null}
+unreachable_hosts:
+  - host: developer.happen.com
+    note: does not resolve (DNS failure, curl exit 6)
+  - host: api.happen.com
+    note: does not resolve (DNS failure, curl exit 6)
+agent_posture:
+  robots_txt:
+    url: https://www.happen.com/robots.txt
+    status: 200
+    note: >-
+      Named AI agent user-agents — GPTBot, ClaudeBot, PerplexityBot, Google-Extended,
+      Applebot-Extended, cohere-ai, anthropic-ai — each receive the SAME Allow/Disallow
+      block as the wildcard agent. No agent is singled out for exclusion, and /api/ is
+      disallowed for every crawler including the wildcard.
+  llms_txt:
+    url: https://www.happen.com/llms.txt
+    status: 404
+    note: not published; a real 404, not a soft-404 shell
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,83 @@
+specification: API Commons Packages
+specificationVersion: '0.1'
+provider: LendingClub
+providerId: lendingclub
+generated: '2026-09-06'
+method: searched
+source: >-
+  registry.npmjs.org (name lookups + /-/v1/search), pypi.org/pypi/<pkg>/json,
+  rubygems.org/api/v1/gems/<pkg>.json, and the LendingClub GitHub organization
+  (api.github.com/orgs/LendingClub/repos).
+summary: >-
+  LendingClub publishes NO first-party client library on any registry. Every package that
+  wraps a LendingClub API is a third-party community wrapper of the retail Investor API,
+  the marketplace that was itself retired in December 2020. The newest of them last
+  published in 2024; the rest date from 2015-2018. official_count is 0.
+official_count: 0
+package_count: 5
+github_organization:
+  url: https://github.com/LendingClub
+  status: 200
+  public_repos: 4
+  note: >-
+    Four public repositories, all internal Java tooling or upstream forks
+    (gradle-maven-plugin, breeze-http-client, docker-java, neo4j-java-driver). None is a
+    client library for a LendingClub API. Most recent push 2021-09-24.
+packages:
+  - name: lendingclub
+    registry: pypi
+    language: python
+    url: https://pypi.org/project/lendingclub/
+    repository: https://github.com/jgillick/LendingClub
+    official: false
+    version: 0.1.10
+    published: '2016-04-19'
+    note: >-
+      Third-party wrapper by Jeremy Gillick for the retail Investor API. Last release
+      predates the December 2020 retirement of the Notes marketplace it automates.
+  - name: pylendingclub
+    registry: pypi
+    language: python
+    url: https://pypi.org/project/pylendingclub/
+    repository: https://github.com/bbarney213/PyLendingClub
+    official: false
+    version: 3.0.2
+    published: '2018-10-23'
+    note: Third-party wrapper by Brandon Dean Barney. Unmaintained since 2018.
+  - name: node-lending-club-api
+    registry: npm
+    language: javascript
+    url: https://www.npmjs.com/package/node-lending-club-api
+    repository: https://github.com/bryansh/lendingClubAPI
+    official: false
+    version: 1.0.14
+    published: '2024-06-01'
+    note: >-
+      Third-party wrapper, and the most recently published of the set — a 2024 release
+      against an API whose public documentation was withdrawn during the 2026 Happen Bank
+      rebrand.
+  - name: lc-api
+    registry: npm
+    language: javascript
+    url: https://www.npmjs.com/package/lc-api
+    repository: https://github.com/ryan-rowland/lending-club
+    official: false
+    version: 0.1.3
+    published: '2016-02-24'
+    note: Third-party wrapper. Abandoned.
+  - name: node-lendingclub
+    registry: npm
+    language: javascript
+    url: https://www.npmjs.com/package/node-lendingclub
+    repository: https://github.com/tjsavage/node-lendingclub
+    official: false
+    version: 0.0.1
+    published: '2015-12-06'
+    note: Third-party wrapper. Abandoned.
+registries_checked:
+  - {registry: npm, query: 'lendingclub / lending-club exact + search', result: 'no first-party package'}
+  - {registry: pypi, query: 'lendingclub, lending-club, pylendingclub', result: 'two third-party packages; lending-club 404'}
+  - {registry: rubygems, query: lendingclub, result: '404 — absent'}
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

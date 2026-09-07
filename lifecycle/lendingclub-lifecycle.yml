@@ -1,6 +1,9 @@
-generated: '2026-07-19'
+generated: '2026-09-06'
 method: searched
-source: https://www.happen.com/
+source: >-
+  https://www.happen.com/ plus direct re-probes of the retired developer and LCX API
+  documentation paths on both lendingclub.com and happen.com, and Wayback Machine
+  availability lookups that date when each page was last served (re-verified 2026-09-06).
 summary: >-
   LendingClub has no current public API program. The company rebranded to Happen Bank
   and redirects lendingclub.com to happen.com; the former developer portal and Investor
@@ -105,3 +108,93 @@ github_organization:
   note: >-
     Internal Java tooling and upstream forks; none is a client library for a
     LendingClub API. No SDKs pointer is warranted.
+
+# --- added 2026-09-06: the retirement is datable, and there were THREE public API
+# surfaces, not one. All three documentation trees now return a real 404 (og:title
+# "Page Does Not Exist"), on the old domain and the new one alike.
+retired_documentation:
+  method: searched
+  note: >-
+    Each page below was publicly served and is present in the Wayback Machine with an
+    HTTP 200 snapshot on the date shown; each now returns a hard 404 on both
+    www.lendingclub.com and www.happen.com. This dates the withdrawal of LendingClub's
+    public API documentation to between March and September 2026, alongside the Happen
+    Bank rebrand — it was not a long-dormant program.
+  pages:
+  - url: https://www.lendingclub.com/developers/api-overview
+    title: Developers | LendingClub's API
+    last_archived_200: '2026-03-13'
+    archive: http://web.archive.org/web/20260313134141/https://www.lendingclub.com/developers/api-overview
+    now: {lendingclub_com: 404, happen_com: 404}
+  - url: https://www.lendingclub.com/developers/api-faq
+    title: Developers | API FAQs
+    now: {lendingclub_com: 404, happen_com: 404}
+  - url: https://www.lendingclub.com/developers/considerations
+    title: Developers | General Considerations
+    now: {lendingclub_com: 404, happen_com: 404}
+  - url: https://www.lendingclub.com/developers/my-api-settings
+    title: Developers | My API Settings
+    note: where an investor generated and rotated their API key
+    now: {lendingclub_com: 404, happen_com: 404}
+  - url: https://www.lendingclub.com/institutional-investing/lcxpm-api
+    title: LendingClub Primary Market (LCX PM) Select Auction Technical Documentation
+    last_archived_200: '2026-06-08'
+    archive: http://web.archive.org/web/20260608113221/https://www.lendingclub.com/institutional-investing/lcxpm-api
+    now: {lendingclub_com: 404, happen_com: 404}
+  - url: https://www.lendingclub.com/institutional-investing/lcxsm-api
+    title: LendingClub Secondary Market (LCX SM) Client-to-Client Technical Documentation
+    last_archived_200: '2026-04-11'
+    archive: http://web.archive.org/web/20260411082112/https://www.lendingclub.com/institutional-investing/lcxsm-api
+    now: {lendingclub_com: 404, happen_com: 404}
+
+# Recorded from the ARCHIVED navigation only. No specification was authored, derived or
+# reconstructed from these pages, and none is claimed to exist: the archived documents are
+# JS-rendered shells whose operation detail never reached the served HTML.
+retired_apis:
+- name: LendingClub Primary Market (LCX PM) Select Auction API
+  status: retired-documentation
+  shape: REST
+  maturity: beta (as stated on the archived page)
+  documented_sections:
+  - Market Logistics
+  - Content Type
+  - Authentication
+  - Formatting
+  - Execution Statuses
+  - Select Auction Listings Summary
+  - Select Auction Listings
+  - Create Buy Order
+  - Order History
+  - Financial Summary
+  - Notes Details
+  - API Release Notes
+  audience: approved institutional investors
+  note: >-
+    Described on the archived page as "a REST API service in beta that allows approved
+    investors to participate programmatically in a dedicated auction of LendingClub
+    loans." Section list read from the archived page navigation; operation paths,
+    parameters and the base URL were never in the served HTML and are NOT recorded here.
+- name: LendingClub Secondary Market (LCX SM) Client-to-Client API
+  status: retired-documentation
+  shape: REST
+  audience: approved institutional investors
+  note: >-
+    Client-to-client secondary-market trading API. Documentation page withdrawn; last
+    archived 200 on 2026-04-11.
+
+# What the company still says it does, with no reference behind it.
+current_claim:
+  url: https://www.happen.com/institutional-investing/overview
+  status: 200
+  quote: >-
+    "Benefit from API-driven purchasing, dynamic pricing, data transparency (100+ data
+    fields per loan)"
+  reference_published: false
+  gate:
+    url: https://www.happen.com/company/contact/institutions-and-banks
+    status: 200
+    type: contact-sales form
+  note: >-
+    Marketplace Connect is still marketed as API-driven, and the only route to that API is
+    now the institutions-and-banks contact form. The contract, the reference and the key
+    issuance are all behind the same wall — which is the whole finding for this provider.
