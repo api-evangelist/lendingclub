@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/lendingclub/integrations
+- https://n8n.io/integrations/lendingclub/
+- https://composio.dev/toolkits/lendingclub
+- https://monid.ai/tools/lendingclub
+checked:
+- https://composio.dev/toolkits/lendingclub
+- https://monid.ai/tools/lendingclub
+- https://n8n.io/integrations/lendingclub/
+- https://zapier.com/apps/lendingclub/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
