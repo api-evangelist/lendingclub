@@ -1,4 +1,4 @@
-# LendingClub (lendingclub)
+# LendingClub
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,23 +64,106 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-LendingClub is a major US corporation and Fortune 1000 company. The LendingClub API provides programmatic access to its platform services, data, and integrations for enterprise customers and partners.
+LendingClub is a US consumer-finance company and national bank, founded in 2006 as a peer-to-peer marketplace lender and now a Fortune 1000 digital bank following its 2021 acquisition of Radius Bancorp. In 2026 it rebranded as Happen Bank, N.A. and moved its web presence from lendingclub.com to happen.com. It no longer operates a public developer program: the /developers tree and the LCX Primary and Secondary Market API technical documentation were withdrawn during the rebrand and now return HTTP 404, while the legacy investor host api.lendingclub.com remains live but gated and undocumented. The API the company still markets - "API-driven purchasing" inside Marketplace Connect for institutional loan buyers - is reachable only through an institutional contact-sales form, with no published reference or machine-readable contract.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/lendingclub/refs/heads/main/apis.yml)
+**Areas:** Fintech · Personal Loans · Banking · Financial Services · Marketplace Lending · Consumer Lending
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## LendingClub on APIs.io
 
-## Tags:
+Everything profiled for LendingClub is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/lendingclub/](https://apis.io/providers/lendingclub/)** — or go straight to one of the APIs or properties below.
 
- - Fintech, Personal Loans, Banking
+### APIs (1)
 
-## Timestamps
+- [LendingClub API](https://apis.io/apis/lendingclub/lendingclub-api/) — No public contract or reference is published for this API. api.lendingclub.com is live and gated - /api/investor/v1/accounts/1/summary answers HTTP 401 and…
 
-- **Created:** 2026-04-19
-- **Modified:** 2026-04-19
+### Published properties
 
-## Maintainers
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-**FN:** Kin Lane
+#### Security (1)
 
-**Email:** kin@apievangelist.com
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Lendingclub Domain Security](https://apis.io/security/lendingclub/lendingclub-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Lendingclub Plans Pricing](https://apis.io/plans/lendingclub/lendingclub-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Lendingclub Rate Limits](https://apis.io/rate-limits/lendingclub/lendingclub-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Lendingclub Finops](https://apis.io/finops/lendingclub/lendingclub-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.happen.com)
+- [Support](https://www.happen.com/company/contact)
+- [Blog](https://www.happen.com/resource-center)
+- [Terms of service](https://www.happen.com/legal/terms-of-use)
+- [Privacy policy](https://www.happen.com/legal/privacy-policy)
+- [GitHub](https://github.com/LendingClub)
+
+## API Evangelist rating
+
+**Kin Score 5.9** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 6.6 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.7** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/lendingclub/](https://apis.io/providers/lendingclub/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for LendingClub: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/lendingclub/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
